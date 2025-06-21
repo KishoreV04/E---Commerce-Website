@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ShopEase - Modern E-commerce Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>  
+  <nav class="sidebar" id="sidebar">
+    <div class="logo">🛒</div>
+    <button class="sidebar-toggle" id="sidebarToggle" title="Expand/Collapse Menu">
+      <span class="material-icons">menu</span>
+    </button>
+    <div class="nav">
+      <div class="nav-item active" data-page="home" id="navHome">
+        <span class="icon material-icons">home</span>
+        <span class="nav-label">Home</span>
+      </div>
+      <div class="nav-item" data-page="search" id="navSearch">
+        <span class="icon material-icons">search</span>
+        <span class="nav-label">Search</span>
+      </div>
+      <div class="nav-item" id="categoriesNav">
+        <span class="icon material-icons">category</span>
+        <span class="nav-label">Categories</span>
+      </div>
+      <div class="nav-item" data-page="offers" id="navOffers">
+        <span class="icon material-icons">local_offer</span>
+        <span class="nav-label">Offers</span>
+      </div>
+      <div class="nav-item" data-page="help" id="navHelp">
+        <span class="icon material-icons">help_outline</span>
+        <span class="nav-label">Help</span>
+      </div>
+    </div>
+
+    <div id="categoriesList" style="display:none; margin-left:2.2rem; margin-top:0.5rem;">
+      <div class="nav-item" data-category="electronics">
+        <span class="icon material-icons">smartphone</span>
+        <span class="nav-label">Electronics</span>
+      </div>
+      <div class="nav-item" data-category="clothing">
+        <span class="icon material-icons">checkroom</span>
+        <span class="nav-label">Clothing</span>
+      </div>
+      <div class="nav-item" data-category="home">
+        <span class="icon material-icons">kitchen</span>
+        <span class="nav-label">Home & Kitchen</span>
+      </div>
+      <div class="nav-item" data-category="sports">
+        <span class="icon material-icons">sports_soccer</span>
+        <span class="nav-label">Sports</span>
+      </div>
+      <div class="nav-item" data-category="beauty">
+        <span class="icon material-icons">spa</span>
+        <span class="nav-label">Beauty</span>
+      </div>
+      <div class="nav-item" data-category="books">
+        <span class="icon material-icons">menu_book</span>
+        <span class="nav-label">Books</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="top-bar">
+      <div style="font-size:1.3rem; font-weight:bold; color:var(--primary);">Welcome to ShopEase!</div>
+      <div class="search-bar">
+        <span class="icon material-icons">search</span>
+        <input type="text" id="searchInput" placeholder="Search products...">
+      </div>
+      <button class="profile-btn" id="profileBtn" title="Profile">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile">
+      </button>
+    </div>
+
+    <div class="page-section active" id="pageHome">
+      <div class="category-title">All Products</div>
+      <div class="product-grid" id="productGridHome"></div>
+    </div>
+    <div class="page-section" id="pageSearch">
+      <div class="category-title">Search Results</div>
+      <div class="product-grid" id="productGridSearch"></div>
+    </div>
+    <div class="page-section" id="pageOffers">
+      <div class="category-title">Special Offers</div>
+      <div class="product-grid" id="productGridOffers"></div>
+    </div>
+    <div class="page-section" id="pageHelp">
+      <div class="help-container">
+        <h2>Help & Support</h2>
+        <p>Welcome to ShopEase Help Center. We're here to assist you!</p>
+
+        <div class="help-section">
+          <h3>📦 Order Assistance</h3>
+          <ul>
+            <li>Track your order in real-time</li>
+            <li>Request returns or replacements easily</li>
+            <li>View invoice and shipping details</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h3>🔒 Account Help</h3>
+          <ul>
+            <li>Update profile and password</li>
+            <li>Manage saved addresses and payment methods</li>
+            <li>Secure your account from suspicious activity</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h3>📞 Customer Support</h3>
+          <p>Email us at <strong>ShopEase@.com</strong> or call <strong>+1-800-555-1234</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="page-section" id="pageCategory">
+      <div class="category-title" id="categoryTitle"></div>
+      <div class="product-grid" id="productGridCategory"></div>
+    </div>
+  </div>
+
+  <aside class="profile-overlay" id="profileOverlay">
+    <div class="profile-header">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile">
+      <div>
+        <div class="profile-name" id="profileName">John Doe</div>
+        <div style="font-size:0.95rem; color:#666;">johndoe@email.com</div>
+      </div>
+      <button class="close-profile" id="closeProfileBtn">
+        <span class="material-icons">close</span>
+      </button>
+    </div>
+    <div class="profile-content">
+      <div class="profile-section">
+        <h4>Order History</h4>
+        <ul>
+          <li>Order #12345 - Delivered</li>
+          <li>Order #12344 - In Transit</li>
+        </ul>
+      </div>
+      <div class="profile-section">
+        <h4>Address</h4>
+        <ul>
+          <li>123 Main St, City, Country</li>
+        </ul>
+      </div>
+      <div class="profile-section">
+        <h4>Account Actions</h4>
+        <ul>
+          <li><a href="#" style="color:var(--accent); text-decoration:underline;">Edit Profile</a></li>
+          <li><a href="#" style="color:var(--accent); text-decoration:underline;">Change Password</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="profile-actions">
+      <button onclick="alert('Feature: Wishlist!')">Wishlist</button>
+      <button onclick="alert('Feature: Logout!')">Logout</button>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
